@@ -30,6 +30,16 @@
    height: 500px;
  }
 
+ .canvas>div {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-width: 10px;
+   min-height: 10px;
+   font-size: 1em;
+   color: white;
+ }
+
  .gameControlers {
 
  }
