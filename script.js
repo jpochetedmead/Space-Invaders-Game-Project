@@ -18,50 +18,31 @@ Left Arrow = Turn Left
 Right Arrow = Turn Right
 Up Arrow / Space Bar = Shoot
 R / r  = Restart Game
-
-Sounds: -EXTRA-
-Make a sound whenever player shoots.
-Make a sound whenever player destroys an enemy.
-Make a sound whenever player lose a life.
-Make a sound if the player lose the game.
-Make a sound if player goes to a new level.
-Make a sound if player wins the game.
 */
 
+//making the player move
+let spaceship = document.getElementById('player');
+let canvas = document.getElementById('canvas');
+let position = 0;
+window.addEventListener("keydown", event => {
+    if (event.key == "ArrowLeft") {
+      console.log('left arrow was pressed');
+      position -= 10;
+        spaceship.style.left = position +'px'
+        //if (position >= )
+    }
 
-//Making the player move
-let canvas = document.body.getElementsByClassName('canvas');
-let player = document.body.getElementsByClassName("Player");
-let enemy = document.body.getElementsByClassName("enemy");
+    
+    if (event.key == "ArrowRight"){
+        console.log('right arrow was pressed');
+        position += 10;
+        spaceship.style.left = position +'px'
+    }
 
-//Controlers Box
-let gameControlers = document.getElementsByClassName("gameControlers");
-
-//Testing Controlers for movement, shooting and restart game.
-document.addEventListener('keydown', controlers);
-
-function controlers(down) {
-  if (down.key === 'ArrowLeft') {
-    // left arrow to turn left.
-    alert("Move Left");
-  }
-  if (down.key === 'ArrowRight') {
-    // right arrow to turn right.
-    alert("Move Right");
-  }
-  if (down.key === 'ArrowUp' || down.key === ' ') {
-    // Up Arrow || SpaceBar to shoot.
-    alert("Shoot");
-  }
-  if (down.key === 'r' || down.key === 'R') {
-    // r key || R key to restart the game.
-    alert("Restart Game");
-    window.location.reload();
-  }
-}
-
-//Reset Game - Let's have this until we come up with a better way to do it "if needed".
-const playAgainButton = document.querySelector('button.playAgainButton');
-playAgainButton.addEventListener("click", () => {
-       window.location.reload();
-     });
+    if (event.key =="ArrowUp") {
+        console.log('fire button was pressed')
+    }
+    if (event.key == "r") {
+        console.log('refresh');
+    }
+  });

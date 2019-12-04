@@ -33,6 +33,7 @@ align-items: center;
  }
 
  .canvas {
+   position: relative;
    display: grid;
    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto;
    background-color: black;
@@ -43,6 +44,7 @@ align-items: center;
  }
 
  .canvas>div {
+   
    display: flex;
    justify-content: center;
    align-items: center;
@@ -80,4 +82,13 @@ align-items: center;
    align-items: center;
    justify-content: center;
    margin-top: 2%;
+ }
+
+ #player {
+   position: absolute; 
+   top: 450px;
+   right: 0px;
+   left: 0px;
+   color: green;
+
  }
