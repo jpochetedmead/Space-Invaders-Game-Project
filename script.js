@@ -21,7 +21,7 @@ R / r  = Restart Game
 */
 
 //making the player move
-let spaceship = document.geßtElementById('player');
+let spaceship = document.getElementById('player');
 let canvas = document.getElementsByClassName('canvas');
 let position = 0;
 window.addEventListener("keydown", event => {
@@ -50,7 +50,6 @@ window.addEventListener("keydown", event => {
 
   // make enemies into an array
   let enemies = ['&#128126;'];
-  const thecanvas = document.getElementsByClassName('canvas');
   let enemiesGrid = [];
 
   for (let counter = 0; enemiesGrid.length < 56; counter ++) {
