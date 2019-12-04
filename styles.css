@@ -50,6 +50,8 @@ align-items: center;
    min-width: 25px;
    min-height: 35px;
    font-size: 1.5em;
+   background-color: red;
+   border: 1px solid white;
    /* border: 1px solid white; */
  }
 
