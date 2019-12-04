@@ -33,9 +33,12 @@ align-items: center;
  }
 
  .canvas {
+   display: flex;
+   justify-content: center;
    position: relative;
    display: grid;
-   grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto;
+   grid-template-columns: 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px;
+   grid-template-rows: 40px 40px 40px 40px 40px;
    background-color: black;
    border: 3px solid limegreen;
    width: 500px;
