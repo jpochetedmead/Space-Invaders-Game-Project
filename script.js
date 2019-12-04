@@ -21,7 +21,7 @@ R / r  = Restart Game
 */
 
 //making the player move
-let spaceship = document.getElementById('player');
+let spaceship = document.geßtElementById('player');
 let canvas = document.getElementsByClassName('canvas');
 let position = 0;
 window.addEventListener("keydown", event => {
@@ -59,5 +59,5 @@ window.addEventListener("keydown", event => {
     const node = document.createElement('div');
     const textnode = document.createTextNode('he');
     node.appendChild(textnode);
-    enemiesGrid.appendChild(node);
+    enemiesGrid.appendChild(node); // This is the line we need to fix.
   }
