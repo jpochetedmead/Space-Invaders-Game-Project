@@ -23,19 +23,28 @@ R / r  = Restart Game
 //making the player move
 let spaceship = document.getElementById('player');
 let canvas = document.getElementsByClassName('canvas');
-let position = 0;
+let position = 260;
 window.addEventListener("keydown", event => {
     if (event.key == "ArrowLeft") {
       console.log('left arrow was pressed');
-      position -= 10;
+      position -= 20;
         spaceship.style.left = position +'px'
-        //if (position >= )
+        if (position <= -20){
+            position += 20
+            spaceship.style.left = position + 'px'
+        }
+        
     }
 
     if (event.key == "ArrowRight"){
         console.log('right arrow was pressed');
-        position += 10;
+        position += 20;
         spaceship.style.left = position +'px'
+        if (position >= 540) {
+            position -= 20
+            spaceship.style.left = position + 'px'
+        }
+        
     }
 
     if (event.key =="ArrowUp") {
@@ -48,7 +57,7 @@ window.addEventListener("keydown", event => {
   });
 
 
-  // make enemies into an array
+  /* make enemies into an array
   let enemies = ['&#128126;'];
   let enemiesGrid = [];
 
@@ -59,4 +68,4 @@ window.addEventListener("keydown", event => {
     const textnode = document.createTextNode('he');
     node.appendChild(textnode);
     enemiesGrid.appendChild(node); // This is the line we need to fix.
-  }
+  }*/
