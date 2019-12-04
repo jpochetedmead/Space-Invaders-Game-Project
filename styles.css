@@ -39,7 +39,7 @@ align-items: center;
    background-color: black;
    border: 3px solid limegreen;
    width: 500px;
-   height: 500px;
+   height: 700px;
    padding: 2%;
  }
 
@@ -86,9 +86,15 @@ align-items: center;
 
  #player {
    position: absolute; 
-   top: 450px;
-   right: 0px;
-   left: 0px;
+   top: 690px;
+   left: 260px;
    color: green;
 
  }
+
+  /*#player .div {
+   position: relative;
+   top: 0;
+   right: 0;
+   left: 0;
+ }*/

@@ -20,23 +20,44 @@ Up Arrow / Space Bar = Shoot
 R / r  = Restart Game
 */
 
+
+//making the rows
+
+/*let grid = [] 
+for (let i = 0; i < 54; ++i)
+    grid.push(i);
+    console.log(grid);
+for (let enemy of grid) 
+*/
+
+
 //making the player move
 let spaceship = document.getElementById('player');
 let canvas = document.getElementById('canvas');
-let position = 0;
+let position = 260;
 window.addEventListener("keydown", event => {
     if (event.key == "ArrowLeft") {
       console.log('left arrow was pressed');
-      position -= 10;
+      position -= 20;
         spaceship.style.left = position +'px'
-        //if (position >= )
+        if (position <= -20) {
+            position += 20;
+            spaceship.style.left = position + 'px';
+            
+        }
     }
 
     
     if (event.key == "ArrowRight"){
         console.log('right arrow was pressed');
-        position += 10;
+        position += 20;
         spaceship.style.left = position +'px'
+       
+        if (position >= 540) {
+            position -= 20;
+            spaceship.style.left = position + 'px';
+            
+        }
     }
 
     if (event.key =="ArrowUp") {
