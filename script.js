@@ -22,7 +22,7 @@ R / r  = Restart Game
 
 //making the player move
 let spaceship = document.getElementById('player');
-let canvas = document.getElementById('canvas');
+let canvas = document.getElementsByClassName('canvas');
 let position = 0;
 window.addEventListener("keydown", event => {
     if (event.key == "ArrowLeft") {
@@ -32,7 +32,6 @@ window.addEventListener("keydown", event => {
         //if (position >= )
     }
 
-    
     if (event.key == "ArrowRight"){
         console.log('right arrow was pressed');
         position += 10;
@@ -42,7 +41,23 @@ window.addEventListener("keydown", event => {
     if (event.key =="ArrowUp") {
         console.log('fire button was pressed')
     }
+
     if (event.key == "r") {
         console.log('refresh');
     }
   });
+
+
+  // make enemies into an array
+  let enemies = ['&#128126;'];
+  const thecanvas = document.getElementsByClassName('canvas');
+  let enemiesGrid = [];
+
+  for (let counter = 0; enemiesGrid.length < 56; counter ++) {
+    enemiesGrid.push('');
+    console.log(enemiesGrid);
+    const node = document.createElement('div');
+    const textnode = document.createTextNode('he');
+    node.appendChild(textnode);
+    enemiesGrid.appendChild(node);
+  }

@@ -33,18 +33,18 @@ align-items: center;
  }
 
  .canvas {
-   position: relative;
    display: grid;
-   grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto;
+   grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto;
+   grid-template-rows: 40px 40px 40px 40px 40px;
    background-color: black;
    border: 3px solid limegreen;
    width: 500px;
    height: 500px;
-   padding: 2%;
+   padding: 5%;
+   color: white;
  }
 
  .canvas>div {
-   
    display: flex;
    justify-content: center;
    align-items: center;
@@ -52,7 +52,8 @@ align-items: center;
    min-width: 25px;
    min-height: 35px;
    font-size: 1.5em;
-   background-color: red;
+   background-color: green;
+   color: white;
    border: 1px solid white;
    /* border: 1px solid white; */
  }
@@ -85,10 +86,10 @@ align-items: center;
  }
 
  #player {
-   position: absolute; 
-   top: 450px;
+   position: absolute;
+   top: 790px;
    right: 0px;
    left: 0px;
    color: green;
-
+   background-color: transparent;
  }
