@@ -61,6 +61,7 @@ align-items: center;
   grid-template-columns: 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px;
   grid-template-rows: 40px 40px 40px 40px 40px;
   background-color: green;
+
 }
 
  .enemies>div {
