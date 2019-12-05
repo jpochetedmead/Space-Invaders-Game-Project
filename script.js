@@ -57,6 +57,22 @@ window.addEventListener("keydown", event => {
   });
 
 
+  //makaing the enemies into an array and putting them into the grid
+ //push divs into the grid
+ //has to have 5 rows and 11 columns
+ //
+  let grid = [] 
+  let enemies = ""
+  let gridEl = document.createElement('grid')
+  for (let i = 0; i < 56; ++i) {
+    let enemy = document.createElement('div')
+    let textEl = document.createTextNode("👽")
+document.getElementsByClassName('canvas')
+     textEl.appendChild(canvas);
+      //run through all of th
+  }
+  
+
   /* make enemies into an array
   let enemies = ['&#128126;'];
   let enemiesGrid = [];
