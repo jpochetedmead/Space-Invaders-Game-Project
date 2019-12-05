@@ -51,7 +51,7 @@ window.addEventListener("keydown", event => {
         console.log('right arrow was pressed');
         position += 20;
         spaceship.style.left = position +'px';
-        if (position >= 540) {
+        if (position >= 560) {
             position -= 20;
             spaceship.style.left = position + 'px';
         }
