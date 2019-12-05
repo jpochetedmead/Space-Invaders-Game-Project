@@ -34,30 +34,39 @@ align-items: center;
 
  .canvas {
    display: flex;
-   justify-content: center;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
    position: relative;
-   display: grid;
-   grid-template-columns: 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px;
-   grid-template-rows: 40px 40px 40px 40px 40px;
    background-color: black;
-   border: 3px solid limegreen;
+   border: 5px solid limegreen;
    width: 500px;
    height: 700px;
    padding: 2%;
+   text-align: center;
  }
 
  .canvas>div {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   align-self: center;
-   min-width: 25px;
-   min-height: 35px;
+   min-width: 20px;
+   min-height: 20px;
    font-size: 1.5em;
    background-color: green;
    color: white;
    border: 1px solid white;
-   /* border: 1px solid white; */
+ }
+
+.enemies {
+  position: absolute;
+  display: grid;
+  grid-template-columns: 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px;
+  grid-template-rows: 40px 40px 40px 40px 40px;
+  background-color: green;
+}
+
+ .enemies>div {
+   background-color: red;
+   border: 1px solid white;
+   padding: 8%;
  }
 
  .gameControlers {
@@ -86,7 +95,8 @@ align-items: center;
    justify-content: center;
    margin-top: 2%;
  }
-#player{
+
+#player {
   position: absolute;
   top: 690px;
   left: 260px;
