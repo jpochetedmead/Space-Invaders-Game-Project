@@ -41,8 +41,9 @@ align-items: center;
    background-color: black;
    border: 5px solid limegreen;
    width: 500px;
-   height: 700px;
-   padding: 2%;
+   height: 640px;
+   padding: 15px;
+   padding-top: 60px;
    text-align: center;
  }
 
@@ -99,7 +100,7 @@ align-items: center;
 
 #player {
   position: absolute;
-  top: 690px;
-  left: 260px;
+  top: 660px;
+  text-align: center;
   color: green;
 }
