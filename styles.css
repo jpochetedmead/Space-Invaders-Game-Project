@@ -33,7 +33,6 @@ align-items: center;
  }
 
  .canvas {
-   display: flex;
    justify-content: center;
    position: relative;
    display: grid;
@@ -86,7 +85,8 @@ align-items: center;
    justify-content: center;
    margin-top: 2%;
  }
-#player{
+ 
+#player {
   position: absolute;
   top: 690px;
   left: 260px;
