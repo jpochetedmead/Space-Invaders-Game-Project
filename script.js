@@ -89,8 +89,15 @@ window.addEventListener("keydown", event => {
 
 // Make enemies move by themselfs right, bottom, left, bottom, repeat.
 /* Trying to work on the enemies movement.... */
-const enemyDiv = document.getElementsByClassName('enemies');
+const enemyDiv = document.getElementsByClassName('enemies'); //This selects the enemies div
 for (let count = 0; count < 100; count++) {
   enemyDiv.style.top = count + "px";
   enemyDiv.style.left = count + "px";
+  console.log(count);
 }
+
+//Reset Game - Let's have this until we come up with a better way to do it "if needed".
+const playAgainButton = document.querySelector('button.playAgainButton');
+playAgainButton.addEventListener("click", () => {
+       window.location.reload();
+     });
