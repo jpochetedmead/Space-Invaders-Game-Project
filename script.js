@@ -20,7 +20,19 @@ Up Arrow / Space Bar = Shoot
 R / r  = Restart Game
 */
 
-//making the player move
+// Showing the Player Spaceship
+let playerGrid = [''];
+let player = ['🚀'];
+for (let counter = 0; playerGrid.length <= 1; counter ++) {
+  playerGrid.push('');
+  const node = document.createElement("div");
+  const textnode = document.createTextNode(player[0]);
+  const divplayer = document.querySelector('div.player');
+  node.appendChild(textnode);
+  divplayer.appendChild(node);
+}
+
+// Making the player move
 let spaceship = document.getElementById('player');
 let canvas = document.getElementsByClassName('canvas');
 let position = 260;
@@ -28,44 +40,49 @@ window.addEventListener("keydown", event => {
     if (event.key == "ArrowLeft") {
       console.log('left arrow was pressed');
       position -= 20;
-        spaceship.style.left = position +'px'
+        spaceship.style.left = position +'px';
         if (position <= -20){
-            position += 20
-            spaceship.style.left = position + 'px'
+            position += 20;
+            spaceship.style.left = position + 'px';
         }
-        
     }
 
-    if (event.key == "ArrowRight"){
+    if (event.key == "ArrowRight") {
         console.log('right arrow was pressed');
         position += 20;
-        spaceship.style.left = position +'px'
+        spaceship.style.left = position +'px';
         if (position >= 540) {
-            position -= 20
-            spaceship.style.left = position + 'px'
+            position -= 20;
+            spaceship.style.left = position + 'px';
         }
-        
     }
 
-    if (event.key =="ArrowUp") {
-        console.log('fire button was pressed')
-    }
+// Making the player shoot
+    if (event.key === 'ArrowUp' || event.key === ' ') {
+    // Up Arrow || SpaceBar to shoot.
+    console.log('fire button was pressed');
+  }
 
-    if (event.key == "r") {
+// Restart the game
+  if (event.key === 'r' || event.key === 'R') {
+        // r key || R key to restart the game.
         console.log('refresh');
-    }
+        window.location.reload();
+      }
+
   });
 
 
-  /* make enemies into an array
-  let enemies = ['&#128126;'];
-  let enemiesGrid = [];
+  // Make enemies into an array
+  let enemiesGrid = [''];
+  let enemies = ['👾'];
 
-  for (let counter = 0; enemiesGrid.length < 56; counter ++) {
+  for (let counter = 0; enemiesGrid.length <= 55; counter ++) {
     enemiesGrid.push('');
     console.log(enemiesGrid);
-    const node = document.createElement('div');
-    const textnode = document.createTextNode('he');
+    const node = document.createElement("div");
+    const textnode = document.createTextNode(enemies[0]);
+    const canvas = document.querySelector('div.canvas');
     node.appendChild(textnode);
-    enemiesGrid.appendChild(node); // This is the line we need to fix.
-  }*/
+    canvas.appendChild(node);
+  }
