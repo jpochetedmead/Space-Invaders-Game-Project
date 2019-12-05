@@ -35,24 +35,24 @@ for (let counter = 0; playerGrid.length <= 1; counter ++) {
 // Making the player move
 let spaceship = document.getElementById('player');
 let canvas = document.getElementsByClassName('canvas');
-let position = 260;
+let position = 245;
 window.addEventListener("keydown", event => {
     if (event.key == "ArrowLeft") {
       console.log('left arrow was pressed');
-      position -= 20;
+      position -= 15;
         spaceship.style.left = position +'px';
-        if (position <= -20){
-            position += 20;
+        if (position <= -0){
+            position += 15;
             spaceship.style.left = position + 'px';
         }
     }
 
     if (event.key == "ArrowRight") {
         console.log('right arrow was pressed');
-        position += 20;
+        position += 15;
         spaceship.style.left = position +'px';
-        if (position >= 540) {
-            position -= 20;
+        if (position >= 515) {
+            position -= 15;
             spaceship.style.left = position + 'px';
         }
     }

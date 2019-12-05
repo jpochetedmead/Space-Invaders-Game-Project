@@ -42,7 +42,7 @@ align-items: center;
    border: 5px solid limegreen;
    width: 500px;
    height: 700px;
-   padding: 2%;
+   padding: 15px;
    text-align: center;
  }
 
@@ -98,7 +98,7 @@ align-items: center;
 
 #player {
   position: absolute;
-  top: 690px;
-  left: 260px;
+  top: 650px;
+  text-align: center;
   color: green;
 }
