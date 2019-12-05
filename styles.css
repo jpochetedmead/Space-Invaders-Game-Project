@@ -103,3 +103,10 @@ align-items: center;
   text-align: center;
   color: green;
 }
+
+#bullet {
+  position: absolute;
+  top: 650px;
+  height: 20px;
+  width: 10px;
+}

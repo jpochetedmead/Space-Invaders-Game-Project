@@ -34,7 +34,7 @@ for (let counter = 0; playerGrid.length <= 1; counter ++) {
 
 // Making the player move
 let spaceship = document.getElementById('player');
-let canvas = document.getElementsByClassName('canvas');
+let canvas = document.querySelector('.canvas');
 let position = 245;
 window.addEventListener("keydown", event => {
     if (event.key == "ArrowLeft") {
@@ -59,6 +59,13 @@ window.addEventListener("keydown", event => {
 
 // Making the player shoot
     if (event.key === 'ArrowUp' || event.key === ' ') {
+        let bullet = document.createElement('div');
+        bullet.className = 'bullet'
+        canvas.appendChild(bullet);
+        
+        
+        
+
     // Up Arrow || SpaceBar to shoot.
     console.log('fire button was pressed');
   }
@@ -82,15 +89,17 @@ window.addEventListener("keydown", event => {
     console.log(enemiesGrid);
     const node = document.createElement("div");
     const textnode = document.createTextNode(enemies[0]);
-    const canvas = document.querySelector('div.enemies');
+    const enemyEl = document.querySelector('div.enemies');
     node.appendChild(textnode);
-    canvas.appendChild(node);
+    enemyEl.appendChild(node);
   }
 
 // Make enemies move by themselfs right, bottom, left, bottom, repeat.
-/* Trying to work on the enemies movement.... */
+/* Trying to work on the enemies movement.... 
 const enemyDiv = document.getElementsByClassName('enemies');
 for (let count = 0; count < 100; count++) {
   enemyDiv.style.top = count + "px";
   enemyDiv.style.left = count + "px";
-}
+}*/
+
+
