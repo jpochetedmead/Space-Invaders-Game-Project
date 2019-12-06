@@ -29,32 +29,36 @@ let spaceship = document.getElementById('player');
 let canvas = document.querySelector('.canvas');
 let playerX = 245;
 let playerY = 25;
-let bulletX;
+let bulletX = 230;
 let bulletY = 24;
+let bulletAr = [];
 let bullet = document.createElement('div');
 bullet.id = 'bullet'
-canvas.appendChild(bullet);
 
 
 
-let bulletEl = document.querySelector("#bullet");
-  bulletX = playerX;
+
+
   
-  function animate(time, lastTime) {
-      
+  function animateBullet(time, lastTime) {
+    let bulletEl = document.querySelector("#bullet");
+if (lastTime == null){
+    canvas.appendChild(bullet);
+}
     
+
     if (lastTime != null) {
-        bulletY += (time - lastTime) * 0.2;
+        bulletY += (time - lastTime) * 0.4;
     }
     bullet.style.bottom = (bulletY + 20) + "px";
 
-    if (bulletY >= 500){
+    if (bulletY >= 650){
         canvas.removeChild(bulletEl);
+        bulletY = 20;
     }
         
-
-else {
-    requestAnimationFrame(newTime => animate(newTime, time));
+    else {
+    requestAnimationFrame(newTime => animateBullet(newTime, time));
     }
 }
 
@@ -97,13 +101,27 @@ window.addEventListener("keydown", event => {
 
 
     if (event.key === 'ArrowUp' || event.key === ' ') {
-       
-    requestAnimationFrame(animate);
-    }
+   
+   
+   
+   
+        /*bulletAr.push([bulletX, bulletY])
+        for (let i of bulletAr){
+            console.log(bulletAr[i][1]) + 20 + 'px';
+            
+        }*/
+    let bullet = document.createElement('div');
+    console.log(bulletAr)
+    document.createElement('div');
+    canvas.appendChild(bullet);
+    document.querySelector
+    bullet.style.bottom = playerY + 20 + 'px'
+    requestAnimationFrame(animateBullet);
+    
     // Up Arrow || SpaceBar to shoot.
     console.log('fire button was pressed');
 
-
+}
 // Restart the game
   if (event.key === 'r' || event.key === 'R') {
         // r key || R key to restart the game.
