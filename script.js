@@ -63,9 +63,6 @@ window.addEventListener("keydown", event => {
         bullet.className = 'bullet'
         canvas.appendChild(bullet);
 
-        
-        
-
     // Up Arrow || SpaceBar to shoot.
     console.log('fire button was pressed');
   }
@@ -76,9 +73,7 @@ window.addEventListener("keydown", event => {
         console.log('refresh');
         window.location.reload();
       }
-
   });
-
 
   // Make enemies into an array
   let enemiesGrid = [''];
@@ -96,12 +91,30 @@ window.addEventListener("keydown", event => {
 
 // Make enemies move by themselfs right, bottom, left, bottom, repeat.
 /* Trying to work on the enemies movement.... */
-const enemyDiv = document.getElementsByClassName('enemies'); //This selects the enemies div
-for (let count = 0; count < 100; count++) {
-  enemyDiv.style.top = count + "px";
-  enemyDiv.style.left = count + "px";
-  console.log(count);
+const enemyDiv = document.querySelector('.enemies'); //This selects the enemies div
+
+// Window setInterval() Method
+for (let countRight = 0; countRight < 90; countRight++) {
+  //enemyDiv.style.left = countRight + "px";
 }
+
+for (let countDown = 0; countDown < 460; countDown++) {
+  //enemyDiv.style.top = countDown + "px";
+}
+
+/*
+let gameTittle = document.querySelector("h1");
+let angle = Math.PI / 2;
+function animate(time, lastTime) {
+  if (lastTime != null) {
+    angle += (time - lastTime) * 0.003;
+  }
+  gameTittle.style.top = (Math.sin(angle) * 21) + "px";
+  gameTittle.style.left = (Math.cos(angle) * 21) + "px";
+  requestAnimationFrame(newTime => animate(newTime, time));
+}
+requestAnimationFrame(animate);
+*/
 
 //Reset Game - Let's have this until we come up with a better way to do it "if needed".
 const playAgainButton = document.querySelector('button.playAgainButton');
