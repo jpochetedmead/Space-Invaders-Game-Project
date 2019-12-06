@@ -61,7 +61,7 @@ align-items: center;
   display: grid;
   grid-template-columns: 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px;
   grid-template-rows: 40px 40px 40px 40px 40px;
-  background-color: green;
+  
 
 }
 
@@ -78,7 +78,7 @@ align-items: center;
    justify-content: center;
  }
 
- .gameControlers>div {
+ /*.gameControlers {
    display: flex;
    justify-content: center;
    align-items: center;
@@ -88,7 +88,7 @@ align-items: center;
    min-width: 100px;
    min-height: 50px;
    margin: 1%;
- }
+ }*/
 
  .restartButton {
    display: flex;
@@ -100,14 +100,15 @@ align-items: center;
 
 #player {
   position: absolute;
-  top: 660px;
+  bottom: 20px;
   text-align: center;
   color: green;
 }
 
 #bullet {
+  color: lime;
   position: absolute;
-  top: 650px;
-  height: 20px;
-  width: 10px;
+  height: 7px;
+  width: 2px;
+  bottom: 40px;
 }

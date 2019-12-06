@@ -20,9 +20,46 @@ Up Arrow / Space Bar = Shoot
 R / r  = Restart Game
 */
 
+
+
 // Showing the Player Spaceship
 let playerGrid = [''];
 let player = ['🚀'];
+let spaceship = document.getElementById('player');
+let canvas = document.querySelector('.canvas');
+let playerX = 245;
+let playerY = 25;
+let bulletX;
+let bulletY = 24;
+let bullet = document.createElement('div');
+bullet.id = 'bullet'
+canvas.appendChild(bullet);
+
+
+
+let bulletEl = document.querySelector("#bullet");
+  bulletX = playerX;
+  
+  function animate(time, lastTime) {
+      
+    
+    if (lastTime != null) {
+        bulletY += (time - lastTime) * 0.2;
+    }
+    bullet.style.bottom = (bulletY + 20) + "px";
+
+    if (bulletY >= 500){
+        canvas.removeChild(bulletEl);
+    }
+        
+
+else {
+    requestAnimationFrame(newTime => animate(newTime, time));
+    }
+}
+
+
+
 for (let counter = 0; playerGrid.length <= 1; counter ++) {
   playerGrid.push('');
   const node = document.createElement("div");
@@ -33,42 +70,39 @@ for (let counter = 0; playerGrid.length <= 1; counter ++) {
 }
 
 // Making the player move
-let spaceship = document.getElementById('player');
-let canvas = document.querySelector('.canvas');
-let position = 245;
+
 window.addEventListener("keydown", event => {
     if (event.key == "ArrowLeft") {
       console.log('left arrow was pressed');
-      position -= 15;
-        spaceship.style.left = position +'px';
-        if (position <= -0){
-            position += 15;
-            spaceship.style.left = position + 'px';
+      playerX -= 15;
+        spaceship.style.left = playerX +'px';
+        if (playerX <= -0){
+            playerX += 15;
+            spaceship.style.left = playerX + 'px';
         }
     }
 
+
     if (event.key == "ArrowRight") {
         console.log('right arrow was pressed');
-        position += 15;
-        spaceship.style.left = position +'px';
-        if (position >= 515) {
-            position -= 15;
-            spaceship.style.left = position + 'px';
+        playerX += 15;
+        spaceship.style.left = playerX +'px';
+        if (playerX >= 515) {
+            playerX -= 15;
+            spaceship.style.left = playerX + 'px';
         }
     }
 
 // Making the player shoot
+
+
     if (event.key === 'ArrowUp' || event.key === ' ') {
-        let bullet = document.createElement('div');
-        bullet.className = 'bullet'
-        canvas.appendChild(bullet);
-
-        
-        
-
+       
+    requestAnimationFrame(animate);
+    }
     // Up Arrow || SpaceBar to shoot.
     console.log('fire button was pressed');
-  }
+
 
 // Restart the game
   if (event.key === 'r' || event.key === 'R') {
@@ -89,7 +123,7 @@ window.addEventListener("keydown", event => {
     console.log(enemiesGrid);
     const node = document.createElement("div");
     const textnode = document.createTextNode(enemies[0]);
-    const enemyEl = document.querySelector('div.enemies');
+    const enemyEl = document.querySelector('.enemies');
     node.appendChild(textnode);
     enemyEl.appendChild(node);
   }
