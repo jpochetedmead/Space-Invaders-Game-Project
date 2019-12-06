@@ -39,6 +39,8 @@
    align-items: center;
    position: relative;
    background-color: black;
+   background-image: url(images/galaxy-background.jpg);
+   background-size: cover;
    border: 5px solid limegreen;
    width: 500px;
    height: 640px;
@@ -48,14 +50,14 @@
  }
 
  .canvas>div {
-   /*
+   /* This is what was messing with the player bullet dimensions, no need to remove anything else in the css.
    min-width: 20px;
    min-height: 20px;
    */
    font-size: 1.5em;
-   background-color: green;
+   background-color: transparent;
    color: white;
-   border: 1px solid white;
+   border: 1px solid white; /* We'll remove this border once we finish the game. */
  }
 
 .enemies {
@@ -63,23 +65,23 @@
   display: grid;
   grid-template-columns: 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px;
   grid-template-rows: 40px 40px 40px 40px 40px;
-  background-color: green;
+  background-color: red; /* I rather have this backgroundcolor here UNTIL I finish with the enemies movement, that way in case I mess anything up I can see the background lol */
 }
 
  .enemies>div {
-   background-color: red;
-   border: 1px solid white;
+   /* border: 1px solid white; */
    padding: 8%;
  }
 
 #player {
   position: absolute;
-  top: 660px;
+  bottom: 20px;
   text-align: center;
-  color: green;
+  color: white;
 }
 
 #bullet {
+  background-color: red;
   position: absolute;
   top: 650px;
   height: 7px;
@@ -91,6 +93,7 @@
   top: 650px;
   height: 7px;
   width: 2px;
+  background-color: red;
 }
 
 .gameControlers {
