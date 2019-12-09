@@ -50,8 +50,15 @@
  }
 
  .canvas>div {
+<<<<<<< HEAD
+   /*min-width: 20px;
+   min-height: 20px;
+   font-size: 1.5em;
+   background-color: green;*/
+=======
    font-size: 1.5em;
    background-color: transparent;
+>>>>>>> da7fe92107182a5a403c2a70858e76b0df5d6da3
    color: white;
    border: 1px solid green; /* We'll remove this border once we finish the game. */
  }
@@ -77,19 +84,12 @@
 #player {
   position: absolute;
   bottom: 20px;
-  text-align: center;
-  color: white;
-}
-
-#bullet {
-  background-color: red;
-  position: absolute;
-  top: 650px;
-  height: 7px;
-  width: 2px;
+  /*text-align: center;*/
+  color: green;
 }
 
 .bullet {
+  background-color: lime;
   position: absolute;
   top: 650px;
   height: 7px;
