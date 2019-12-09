@@ -105,8 +105,8 @@ align-items: center;
   color: green;
 }
 
-#bullet {
-  color: lime;
+.bullet {
+  background-color: lime;
   position: absolute;
   height: 7px;
   width: 2px;

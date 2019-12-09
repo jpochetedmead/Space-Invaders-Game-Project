@@ -29,24 +29,34 @@ let spaceship = document.getElementById('player');
 let canvas = document.querySelector('.canvas');
 let playerX = 245;
 let playerY = 25;
-let bulletX = 230;
+let bulletX = 250;
 let bulletY = 24;
 let bulletAr = [];
-let bullet = document.createElement('div');
-bullet.id = 'bullet'
 
 
+function drawBullets() {
+    Array.from(canvas.querySelectorAll('.bullet')).forEach(oldBullet => {
+        canvas.removeChild(oldBullet);
+    });
+    //find all divs with a class of bullet and delete from page
+    //for loop over bullet array
+        for (let bullet of bulletAr) {
+            bulletEl = document.createElement('div');
+            bulletEl.className = 'bullet';
+            bulletEl.style.bottom = bullet[1] + 30 + 'px';
+            bulletEl.style.left = bullet[0] + 18 + 'px';
+            canvas.appendChild(bulletEl);
+            
+            
+        }
 
-
-
+    //for each bullet make a div with the class of bullet
+    //set left and top styles according to itself
+    //append div to canvas
+}
   
   function animateBullet(time, lastTime) {
     let bulletEl = document.querySelector("#bullet");
-if (lastTime == null){
-    canvas.appendChild(bullet);
-}
-    
-
     if (lastTime != null) {
         bulletY += (time - lastTime) * 0.4;
     }
@@ -60,6 +70,7 @@ if (lastTime == null){
     else {
     requestAnimationFrame(newTime => animateBullet(newTime, time));
     }
+    
 }
 
 
@@ -91,6 +102,7 @@ window.addEventListener("keydown", event => {
         console.log('right arrow was pressed');
         playerX += 15;
         spaceship.style.left = playerX +'px';
+        console.log(playerX)
         if (playerX >= 515) {
             playerX -= 15;
             spaceship.style.left = playerX + 'px';
@@ -101,21 +113,17 @@ window.addEventListener("keydown", event => {
 
 
     if (event.key === 'ArrowUp' || event.key === ' ') {
-   
-   
-   
-   
         /*bulletAr.push([bulletX, bulletY])
         for (let i of bulletAr){
             console.log(bulletAr[i][1]) + 20 + 'px';
-            
+            console.log(bulletAr)
         }*/
     let bullet = document.createElement('div');
-    console.log(bulletAr)
-    document.createElement('div');
     canvas.appendChild(bullet);
-    document.querySelector
-    bullet.style.bottom = playerY + 20 + 'px'
+    document.querySelector("#bullet")
+    bullet.style.left = (playerX + 10 + 'px');
+    bulletAr.push([playerX, bulletY])
+    drawBullets();
     requestAnimationFrame(animateBullet);
     
     // Up Arrow || SpaceBar to shoot.
