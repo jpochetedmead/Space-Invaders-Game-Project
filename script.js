@@ -5,13 +5,13 @@
  **************************/
 /*
 1. As a Player, I want to press the arrow keys so I can move the space ship left and right.  (3)(Done... can be improved.)
-2. As a Player, I want to see the enemies, so I can aim at them and see their movements (3)(In progress...)
-3. As a Player, I want to press the up key, so I can see the bullet and shoot the enemies and see when enemies shoot at me (8)(In progress...)
+2. As a Player, I want to see the enemies, so I can aim at them and see their movements (3)(Done... can be improved.)
+3. As a Player, I want to press the up key, so I can see the bullet and shoot the enemies and see when enemies shoot at me (8)(In progress... almost done.)
 4. As a Player, I want to see the enemies blow up, so I can tell that they are dead (5)
 5. As a Player, I want to see my lives and know when I die , so I can see when I’m going to die and when to restart (2)
 6. As a player I want to see the score, so I can see how well I’m doing (1)
 7. As a Player, I want to see an end screen , so I can tell that I beat the level (1)
-8. As a Player, I want to press a button , so I can restart the game (1)(Done.. can be improved.)
+8. As a Player, I want to press a button or the "R"/"r" key, so I can restart the game (1)(Done.. can be improved.)
 
 Controls:
 Left Arrow = Turn Left
@@ -19,8 +19,6 @@ Right Arrow = Turn Right
 Up Arrow / Space Bar = Shoot
 R / r  = Restart Game
 */
-
-
 
 // Showing the Player Spaceship
 let playerGrid = [''];
@@ -56,7 +54,7 @@ function drawBullets() {
 }
   
   function animateBullet(time, lastTime) {
-    let bulletEl = document.querySelector("#bullet");
+    let bulletEl = document.querySelector(".bullet");
     if (lastTime != null) {
         bulletY += (time - lastTime) * 0.4;
     }
@@ -72,8 +70,6 @@ function drawBullets() {
     }
     
 }
-
-
 
 for (let counter = 0; playerGrid.length <= 1; counter ++) {
   playerGrid.push('');
@@ -95,8 +91,7 @@ window.addEventListener("keydown", event => {
             playerX += 15;
             spaceship.style.left = playerX + 'px';
         }
-    }
-
+      }
 
     if (event.key == "ArrowRight") {
         console.log('right arrow was pressed');
@@ -110,8 +105,7 @@ window.addEventListener("keydown", event => {
     }
 
 // Making the player shoot
-
-
+// Up Arrow || SpaceBar to shoot.
     if (event.key === 'ArrowUp' || event.key === ' ') {
         /*bulletAr.push([bulletX, bulletY])
         for (let i of bulletAr){
@@ -120,7 +114,7 @@ window.addEventListener("keydown", event => {
         }*/
     let bullet = document.createElement('div');
     canvas.appendChild(bullet);
-    document.querySelector("#bullet")
+    document.querySelector(".bullet")
     bullet.style.left = (playerX + 10 + 'px');
     bulletAr.push([playerX, bulletY])
     drawBullets();
@@ -131,16 +125,14 @@ window.addEventListener("keydown", event => {
 
 }
 // Restart the game
+// r key || R key to restart the game.
   if (event.key === 'r' || event.key === 'R') {
-        // r key || R key to restart the game.
         console.log('refresh');
         window.location.reload();
       }
-
   });
 
-
-  // Make enemies into an array
+// Make enemies into an array
   let enemiesGrid = [''];
   let enemies = ['👾'];
 
@@ -154,17 +146,74 @@ window.addEventListener("keydown", event => {
     enemyEl.appendChild(node);
   }
 
-// Make enemies move by themselfs right, bottom, left, bottom, repeat.
-/* Trying to work on the enemies movement.... */
-const enemyDiv = document.getElementsByClassName('enemies'); //This selects the enemies div
-for (let count = 0; count < 100; count++) {
-  enemyDiv.style.top = count + "px";
-  enemyDiv.style.left = count + "px";
-  console.log(count);
-}
+// Make Enemies Move (right to left and viceversa while moving down at the same time)
+
+const enemyDiv = document.querySelector('.enemies');
+let countRightX = 0;
+let countDownY = 0;
+
+  let angle = Math.PI / 2;
+  function animateEnemies(time, lastTime) {
+    if (lastTime != null) {
+      angle += (time - lastTime) * 0.003;
+    }
+    if (countRightX === 0) {
+      enemyDiv.style.top = angle + 10 + "px";
+      enemyDiv.style.right = (Math.cos(angle) * 44) + "px";
+
+    }
+/* I'll leave these comments here for now...
+//enemyDiv.style.top = (Math.sin(angle) * 20) + "px";
+//enemyDiv.style.left = (Math.cos(angle) * 44) + "px";
+//setTimeout(function() {countRightX += 1;}, 4500);
+//enemyDiv.style.top = (Math.sin(angle) + 20) + "px";
+//setTimeout(function() {enemyDiv.style.bottom = angle + 10 + "px";}, 3000);
+    if (countRightX === 1) {
+      console.log("YESSSS!")
+      enemyDiv.style.top = (Math.sin(angle) + 20) + "px";
+      enemyDiv.style.right = (Math.cos(angle) * 44) + "px";
+      //setTimeout(function() {countRightX += 1;}, 1500);
+      //enemyDiv.style.top = down + 20 + "px";
+      //enemyDiv.style.right = (Math.cos(angle) * 44) + "px";
+   } */
+    requestAnimationFrame(newTime => animateEnemies(newTime, time));
+  }
+  requestAnimationFrame(animateEnemies);
+
+//Enemies blowing up (Change image and play sound)
 
 //Reset Game - Let's have this until we come up with a better way to do it "if needed".
 const playAgainButton = document.querySelector('button.playAgainButton');
 playAgainButton.addEventListener("click", () => {
        window.location.reload();
      });
+
+
+//Game Controlers Div (Have them change colors whenever you do something with the spaceship)
+//Later we may add sounds.
+let theLeftbutton = document.querySelector('.left');
+let theRightbutton = document.querySelector('.right');
+let theUpbutton = document.querySelector('.up');
+
+window.addEventListener("keydown", event => {
+   if (event.key == "ArrowLeft") {
+     theLeftbutton.style.background = "green";
+   }
+   if (event.key == "ArrowRight") {
+     theRightbutton.style.background = "green";
+   }
+   if (event.key === "ArrowUp" || event.key === ' ') {
+     theUpbutton.style.background = "red";
+   }
+ });
+ window.addEventListener("keyup", event => {
+   if (event.key == "ArrowLeft") {
+     theLeftbutton.style.background = "";
+   }
+   if (event.key == "ArrowRight") {
+     theRightbutton.style.background = "";
+   }
+   if (event.key === "ArrowUp" || event.key === ' ') {
+     theUpbutton.style.background = "";
+   }
+ });
