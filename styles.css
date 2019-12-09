@@ -35,10 +35,10 @@
  .canvas {
    display: flex;
    flex-direction: column;
-   justify-content: flex-start;
+   justify-content: center;
    align-items: center;
    position: relative;
-   background-color: black;
+   background-color: black; /* In case background pic doesn't upload */
    background-image: url(images/galaxy-background.jpg);
    background-size: cover;
    border: 5px solid limegreen;
@@ -50,18 +50,15 @@
  }
 
  .canvas>div {
-   /* This is what was messing with the player bullet dimensions, no need to remove anything else in the css.
-   min-width: 20px;
-   min-height: 20px;
-   */
    font-size: 1.5em;
    background-color: transparent;
    color: white;
-   border: 1px solid white; /* We'll remove this border once we finish the game. */
+   border: 1px solid green; /* We'll remove this border once we finish the game. */
  }
 
 .enemies {
   position: absolute;
+  margin-right: 8.3%;
   display: grid;
   grid-template-columns: 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px;
   grid-template-rows: 40px 40px 40px 40px 40px;
@@ -69,8 +66,12 @@
 }
 
  .enemies>div {
-   /* border: 1px solid white; */
-   padding: 8%;
+   /*
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   */
  }
 
 #player {
