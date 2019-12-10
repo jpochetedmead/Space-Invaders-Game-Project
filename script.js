@@ -33,12 +33,18 @@ let enemiesGrid = [''];
 
 let test = canvas.querySelector('.test')
 let testAr = []
-testVariables = test.getBoundingClientRect();
+let testVariables = test.getBoundingClientRect();
 testAr.push(testVariables.x);
 testAr.push(testVariables.y)
 testAr.push(testVariables.width)
 testAr.push(testVariables.height)
     
+let playerPosAr = [];
+let playerVar = spaceship.getBoundingClientRect();
+playerPosAr.push(playerVar.x);
+playerPosAr.push(playerVar.y);
+playerPosAr.push(playerVar.width);
+playerPosAr.push(playerVar.height);
 
 
 function collision(node1, node2) {
