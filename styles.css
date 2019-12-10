@@ -62,14 +62,12 @@
   display: grid;
   grid-template-columns: 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px;
   grid-template-rows: 40px 40px 40px 40px 40px;
-  background-color: red; /* I rather have this backgroundcolor here UNTIL I finish with the enemies movement, that way in case I mess anything up I can see the background lol */
 }
-
 
 #player {
   position: absolute;
   bottom: 20px;
-  /*text-align: center;*/
+  /* text-align: center; */
   color: green;
 }
 

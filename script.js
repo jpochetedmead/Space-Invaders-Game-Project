@@ -185,7 +185,6 @@ let countDownY = 0;
     if (countRightX === 0) {
       enemyDiv.style.top = angle + 10 + "px";
       enemyDiv.style.right = (Math.cos(angle) * 44) + "px";
-
     }
 
 
