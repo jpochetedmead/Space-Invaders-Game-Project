@@ -27,49 +27,72 @@ let spaceship = document.getElementById('player');
 let canvas = document.querySelector('.canvas');
 let playerX = 245;
 let playerY = 25;
-let bulletX = 250;
-let bulletY = 24;
 let bulletAr = [];
 
+let playerPos = spaceship.offsetTop;
+    console.log(playerPos)
 
-function drawBullets() {
-    Array.from(canvas.querySelectorAll('.bullet')).forEach(oldBullet => {
-        canvas.removeChild(oldBullet);
-    });
-    //find all divs with a class of bullet and delete from page
-    //for loop over bullet array
-        for (let bullet of bulletAr) {
-            bulletEl = document.createElement('div');
-            bulletEl.className = 'bullet';
-            bulletEl.style.bottom = bullet[1] + 30 + 'px';
-            bulletEl.style.left = bullet[0] + 18 + 'px';
-            canvas.appendChild(bulletEl);
-            
-            
-        }
 
-    //for each bullet make a div with the class of bullet
-    //set left and top styles according to itself
-    //append div to canvas
-}
-  
-  function animateBullet(time, lastTime) {
-    let bulletEl = document.querySelector(".bullet");
-    if (lastTime != null) {
-        bulletY += (time - lastTime) * 0.4;
-    }
-    bullet.style.bottom = (bulletY + 20) + "px";
-
-    if (bulletY >= 650){
-        canvas.removeChild(bulletEl);
-        bulletY = 20;
-    }
+    function collision(node1, node2) {
         
-    else {
-    requestAnimationFrame(newTime => animateBullet(newTime, time));
+    }
+
+function moveBulletUp() {
+    for (let bullet of bulletAr) {
+        bullet[1] += 5;
+       console.log(bullet[1])
+        if (bullet[1] >= 650){
+            bulletAr.removeChild
+        }
     }
     
+
 }
+
+function bulletStart(x) {
+    bulletAr.push([x, 24])
+}
+
+function drawBullets() {
+    removeBullet();
+    for (let bullet of bulletAr) {
+        
+        bulletEl = document.createElement('div');
+        bulletEl.className = 'bullet';
+        bulletEl.style.left = bullet[0] + 18 + 'px';
+        bulletEl.style.bottom = bullet[1] + 30 + 'px';
+        canvas.appendChild(bulletEl);
+        
+        
+    }
+}
+function removeBullet() {
+    for (let div of canvas.querySelectorAll('.bullet') ) {
+        canvas.removeChild(div);
+    }
+}
+
+let lastTime = performance.now();
+
+  function animate(now) {
+    if (now - lastTime > 50){
+        
+    
+    lastTime = now
+    moveBulletUp();
+    drawBullets();
+    requestAnimationFrame(animate);
+    }
+    
+    
+    else {
+        requestAnimationFrame(animate);
+    }
+   
+  }
+  requestAnimationFrame(animate);
+  
+  
 
 for (let counter = 0; playerGrid.length <= 1; counter ++) {
   playerGrid.push('');
@@ -107,20 +130,13 @@ window.addEventListener("keydown", event => {
 // Making the player shoot
 // Up Arrow || SpaceBar to shoot.
     if (event.key === 'ArrowUp' || event.key === ' ') {
-        /*bulletAr.push([bulletX, bulletY])
-        for (let i of bulletAr){
-            console.log(bulletAr[i][1]) + 20 + 'px';
-            console.log(bulletAr)
-        }*/
-    let bullet = document.createElement('div');
-    canvas.appendChild(bullet);
-    document.querySelector(".bullet")
-    bullet.style.left = (playerX + 10 + 'px');
-    bulletAr.push([playerX, bulletY])
-    drawBullets();
-    requestAnimationFrame(animateBullet);
+        
+        bulletStart(playerX);
+        requestAnimationFrame(animate);
+
+        
     
-    // Up Arrow || SpaceBar to shoot.
+    
     console.log('fire button was pressed');
 
 }
