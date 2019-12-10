@@ -28,24 +28,33 @@ let canvas = document.querySelector('.canvas');
 let playerX = 245;
 let playerY = 25;
 let bulletAr = [];
-
-let playerPos = spaceship.offsetTop;
-    console.log(playerPos)
+let enemiesGrid = [''];
 
 
-    function collision(node1, node2) {
+let test = canvas.querySelector('.test')
+let testAr = []
+testVariables = test.getBoundingClientRect();
+testAr.push(testVariables.x);
+testAr.push(testVariables.y)
+testAr.push(testVariables.width)
+testAr.push(testVariables.height)
+    
+
+
+function collision(node1, node2) {
         
     }
 
 function moveBulletUp() {
     for (let bullet of bulletAr) {
         bullet[1] += 5;
-       console.log(bullet[1])
+       
         if (bullet[1] >= 650){
-            bulletAr.removeChild
-        }
+            bulletAr.shift();   
+       }
+        
     }
-    
+   
 
 }
 
@@ -149,7 +158,7 @@ window.addEventListener("keydown", event => {
   });
 
 // Make enemies into an array
-  let enemiesGrid = [''];
+  
   let enemies = ['👾'];
 
   for (let counter = 0; enemiesGrid.length <= 55; counter ++) {
@@ -178,6 +187,9 @@ let countDownY = 0;
       enemyDiv.style.right = (Math.cos(angle) * 44) + "px";
 
     }
+
+
+
 /* I'll leave these comments here for now...
 //enemyDiv.style.top = (Math.sin(angle) * 20) + "px";
 //enemyDiv.style.left = (Math.cos(angle) * 44) + "px";

@@ -107,3 +107,11 @@
   justify-content: center;
   margin-top: 2%;
 }
+
+.test {
+  position: absolute;
+  bottom: 50px;
+  width: 30px;
+  height: 30px;
+  background-color: lime;
+}
