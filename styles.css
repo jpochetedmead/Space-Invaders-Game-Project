@@ -69,6 +69,8 @@
   bottom: 20px;
   /* text-align: center; */
   color: green;
+  height: 32px;
+  width: 25px;
 }
 
 .bullet {
@@ -108,8 +110,10 @@
 
 .test {
   position: absolute;
-  bottom: 50px;
+  left: 40px;
   width: 30px;
   height: 30px;
+  
+  bottom: 40px;
   background-color: lime;
 }

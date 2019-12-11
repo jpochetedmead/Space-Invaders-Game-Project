@@ -36,20 +36,40 @@ let testAr = []
 let testVariables = test.getBoundingClientRect();
 testAr.push(testVariables.x);
 testAr.push(testVariables.y)
-testAr.push(testVariables.width)
-testAr.push(testVariables.height)
-    
+console.log(testAr);
+
+
 let playerPosAr = [];
 let playerVar = spaceship.getBoundingClientRect();
 playerPosAr.push(playerVar.x);
 playerPosAr.push(playerVar.y);
-playerPosAr.push(playerVar.width);
-playerPosAr.push(playerVar.height);
+console.log(playerPosAr);
+
+
+if (testAr[0] >= playerPosAr[0]) {
+    test.style.backgroundColor = "red"
+}
+if (testAr[0] < playerPosAr[0]) {
+    test.style.backgroundColor = 'lime'
+}
 
 
 function collision(node1, node2) {
+    let test1 = node1.getBoundingClientRect();
+    console.log(test1);
+    let test2 = node2.getBoundingClientRect();
+    console.log(test2);
+    if (test1.x < test2.x + test2.width &&
+        test1.x + test1.width > test2.x &&
+        test1.y < test2.y + test2.height &&
+        test1.y + test1.height > test2.y){
+
         
-    }
+        return true;
+        }
+}
+
+collision(spaceship, test);
 
 function moveBulletUp() {
     for (let bullet of bulletAr) {
@@ -161,6 +181,7 @@ window.addEventListener("keydown", event => {
         console.log('refresh');
         window.location.reload();
       }
+      collision(spaceship, test)
   });
 
 // Make enemies into an array
@@ -169,7 +190,6 @@ window.addEventListener("keydown", event => {
 
   for (let counter = 0; enemiesGrid.length <= 55; counter ++) {
     enemiesGrid.push('');
-    console.log(enemiesGrid);
     const node = document.createElement("div");
     const textnode = document.createTextNode(enemies[0]);
     const enemyEl = document.querySelector('.enemies');
