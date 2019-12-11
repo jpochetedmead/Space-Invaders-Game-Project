@@ -110,10 +110,10 @@
 
 .test {
   position: absolute;
-  left: 40px;
+  left: 400px;
   width: 30px;
   height: 30px;
   
-  bottom: 40px;
+  bottom: 250px;
   background-color: lime;
 }

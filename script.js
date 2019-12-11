@@ -29,30 +29,37 @@ let playerX = 245;
 let playerY = 25;
 let bulletAr = [];
 let enemiesGrid = [''];
+let test = document.querySelector(".test");
 
 
-let test = canvas.querySelector('.test')
-let testAr = []
-let testVariables = test.getBoundingClientRect();
-testAr.push(testVariables.x);
-testAr.push(testVariables.y)
-console.log(testAr);
+function bulletEnemy() {
 
+    let bulletCol = document.querySelectorAll('.bullet')
+    let enemyCol = document.querySelectorAll('.enemies div')
 
-let playerPosAr = [];
-let playerVar = spaceship.getBoundingClientRect();
-playerPosAr.push(playerVar.x);
-playerPosAr.push(playerVar.y);
-console.log(playerPosAr);
+    for (let bullet of bulletCol) {
+        for (let enemy of enemyCol){
+            if (collision(bullet, enemy)) {
+                console.log("COLLISION", bullet, enemy)
+            }
+            
+        }
+        
+    }
+    
+    
+    
+    
+    //for each enemy 
+            //check collision on bullet and enemy
 
-
-if (testAr[0] >= playerPosAr[0]) {
-    test.style.backgroundColor = "red"
 }
-if (testAr[0] < playerPosAr[0]) {
-    test.style.backgroundColor = 'lime'
-}
 
+
+function enemyFinder() {
+    let enemies = document.querySelectorAll(".enemies")
+    console.log(enemies.length)
+}
 
 function collision(node1, node2) {
     let test1 = node1.getBoundingClientRect();
@@ -64,9 +71,11 @@ function collision(node1, node2) {
         test1.y < test2.y + test2.height &&
         test1.y + test1.height > test2.y){
 
-        
+            test.style.backgroundColor = 'red'
         return true;
+        
         }
+        
 }
 
 collision(spaceship, test);
@@ -107,8 +116,12 @@ function removeBullet() {
     }
 }
 
-let lastTime = performance.now();
 
+
+
+
+//ANIMATE FUNCTION
+let lastTime = performance.now();
   function animate(now) {
     if (now - lastTime > 50){
         
@@ -182,6 +195,7 @@ window.addEventListener("keydown", event => {
         window.location.reload();
       }
       collision(spaceship, test)
+      
   });
 
 // Make enemies into an array
@@ -199,7 +213,7 @@ window.addEventListener("keydown", event => {
 
 // Make Enemies Move (right to left and viceversa while moving down at the same time)
 
-const enemyDiv = document.querySelector('.enemies');
+let enemyDiv = document.querySelector('.enemies');
 let countRightX = 0;
 let countDownY = 0;
 
