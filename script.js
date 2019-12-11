@@ -42,7 +42,7 @@ function bulletEnemy() {
             if ( enemy.textContent && collision(bullet, enemy)) {
                 bulletAr = bulletAr.slice(0, Number(bullet.dataset.index)).concat(bulletAr.slice(Number(bullet.dataset.index) + 1));
                 enemy.textContent = '';
-                console.log("COLLISION", bullet, enemy);
+                
             }
             
         }
@@ -52,9 +52,9 @@ function bulletEnemy() {
 
 function collision(node1, node2) {
     let test1 = node1.getBoundingClientRect();
-    console.log(test1);
+    
     let test2 = node2.getBoundingClientRect();
-    console.log(test2);
+    
     if (test1.x < test2.x + test2.width &&
         test1.x + test1.width > test2.x &&
         test1.y < test2.y + test2.height &&
