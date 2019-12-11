@@ -39,26 +39,15 @@ function bulletEnemy() {
 
     for (let bullet of bulletCol) {
         for (let enemy of enemyCol){
-            if (collision(bullet, enemy)) {
-                console.log("COLLISION", bullet, enemy)
+            if ( enemy.textContent && collision(bullet, enemy)) {
+                bulletAr = bulletAr.slice(0, Number(bullet.dataset.index)).concat(bulletAr.slice(Number(bullet.dataset.index) + 1));
+                enemy.textContent = '';
+                console.log("COLLISION", bullet, enemy);
             }
             
         }
         
     }
-    
-    
-    
-    
-    //for each enemy 
-            //check collision on bullet and enemy
-
-}
-
-
-function enemyFinder() {
-    let enemies = document.querySelectorAll(".enemies")
-    console.log(enemies.length)
 }
 
 function collision(node1, node2) {
@@ -98,19 +87,20 @@ function bulletStart(x) {
 }
 
 function drawBullets() {
-    removeBullet();
-    for (let bullet of bulletAr) {
+    removeBulletDivs();
+    for (let index in bulletAr) {
         
         bulletEl = document.createElement('div');
         bulletEl.className = 'bullet';
-        bulletEl.style.left = bullet[0] + 18 + 'px';
-        bulletEl.style.bottom = bullet[1] + 30 + 'px';
+        bulletEl.dataset.index = index;
+        bulletEl.style.left = bulletAr[index][0] + 18 + 'px';
+        bulletEl.style.bottom = bulletAr[index][1] + 30 + 'px';
         canvas.appendChild(bulletEl);
         
         
     }
 }
-function removeBullet() {
+function removeBulletDivs() {
     for (let div of canvas.querySelectorAll('.bullet') ) {
         canvas.removeChild(div);
     }
@@ -128,6 +118,7 @@ let lastTime = performance.now();
     
     lastTime = now
     moveBulletUp();
+    bulletEnemy();
     drawBullets();
     requestAnimationFrame(animate);
     }
