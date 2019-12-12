@@ -27,6 +27,7 @@ let canvas = document.querySelector('.canvas');
 let playerX = 245;
 let playerY = 25;
 let bulletAr = [];
+let enemyBulletAr = [];
 let enemiesGrid = [''];
 let playerPoints = 0;
 let test = document.querySelector(".test");
@@ -113,24 +114,28 @@ function collision(node1, node2) {
         test1.x + test1.width > test2.x &&
         test1.y < test2.y + test2.height &&
         test1.y + test1.height > test2.y) {
-        test.style.backgroundColor = 'red';
+        
         return true;
     }
 }
-collision(spaceship, test);
 
-function moveBulletUp() {
+//player bullet functions
+function moveBullet() {
     for (let bullet of bulletAr) {
         bullet[1] += 5;
         if (bullet[1] >= 650) {
             bulletAr.shift();
         }
     }
+        
 }
 
+   
 function bulletStart(x) {
     bulletAr.push([x, 24]);
 }
+
+
 
 function drawBullets() {
     removeBulletDivs();
@@ -149,7 +154,7 @@ function removeBulletDivs() {
         canvas.removeChild(div);
     }
 }
-
+    
 //ANIMATE FUNCTION
 let lastTime = performance.now();
 
@@ -157,15 +162,77 @@ function animate(now) {
 
     if (now - lastTime > 50) {
         lastTime = now;
-        moveBulletUp();
+        moveBullet();
         bulletEnemy();
         drawBullets();
+        
         requestAnimationFrame(animate);
     } else {
         requestAnimationFrame(animate);
     }
 }
 requestAnimationFrame(animate);
+
+//enemy bullet divs 
+
+function randomEnemy() {
+    let existingEnemy = Array.from(document.querySelectorAll('.enemies div')).filter(div => div != '');
+    let r = Math.floor(Math.random() * existingEnemy.length);
+    console.log(existingEnemy[r])
+    existingEnemy[r].style.backgroundColor = 'red';
+        return existingEnemy[r];
+}
+
+
+function enemyBulletStart(x, y) {
+    enemyBulletAr.push(x, y)
+}
+
+function drawEnemyBullets() {
+    removeEnemyBullets();
+    for (let index in enemyBulletAr) {
+        enemyBullet = document.createElement('div')
+        enemyBullet.className = 'enemyBullet';
+        enemyBullet.dataset.index = index;
+        enemyBullet.style.left = enemyBulletAr[index][0] - 18 + 'px';
+        enemyBullet.style.bottom = enemyBulletAr[index][1] -30 + 'px';
+        canvas.appendChild(enemyBullet);
+    }
+}
+
+function removeEnemyBullet() {
+    for (let enemyDiv of canvas.querySelectorAll('.enemyBullet')) {
+        canvas.removeChild(enemyDiv);
+    }
+}
+
+function moveEnemyBullet() {
+    for (let enemyBullet of enemyBulletAr) {
+        enemyBullet[1] -= 5;
+        if (enemyBullet <= 156) {
+            enemyBulletAr.shift();
+        }
+    }
+}
+
+lastTime;
+function animateEnemyBullets(now) {
+    if (now - lastTime > 50) {
+        lastTime = now;
+        moveEnemyBullet();
+        drawEnemyBullets();
+        requestAnimationFrame(animateEnemyBullets);
+
+    } else {
+        requestAnimationFrame(animateEnemyBullets);
+    }
+}
+
+
+
+
+
+
 
 for (let counter = 0; playerGrid.length <= 1; counter++) {
     playerGrid.push('');
@@ -179,7 +246,7 @@ for (let counter = 0; playerGrid.length <= 1; counter++) {
 // Making the player move
 window.addEventListener("keydown", event => {
     if (event.key == "ArrowLeft") {
-        console.log('left arrow was pressed');
+        
         playerX -= 15;
         spaceship.style.left = playerX + 'px';
         if (playerX <= -0) {
@@ -189,10 +256,8 @@ window.addEventListener("keydown", event => {
     }
 
     if (event.key == "ArrowRight") {
-        console.log('right arrow was pressed');
         playerX += 15;
         spaceship.style.left = playerX + 'px';
-        console.log(playerX);
         if (playerX >= 515) {
             playerX -= 15;
             spaceship.style.left = playerX + 'px';
@@ -216,7 +281,7 @@ window.addEventListener("keydown", event => {
         playAgainButton.style.backgroundColor = 'green';
         playAgainButton.style.color = 'white';
     }
-    collision(spaceship, test); //Why do we have this line here?
+    
 
 });
 
