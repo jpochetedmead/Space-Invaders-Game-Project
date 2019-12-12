@@ -23,14 +23,15 @@
 
     <div class="fullGame">
 
-      <div class="gameTittle">
-        <h1>Space Invaders</h1>
+      <div class="stateOfgame">
+        <div class="gameTittle">
+          <h1>Space Invaders</h1>
+        </div>
+      <!-- State of the game -->
+       <div class="gameScorediv">
+         <p><b class="playerScore"></b></p>
+       </div>
       </div>
-
-    <!-- State of the game -->
-    <div class="gameState">
-      <p>Player Score <b id="playerScore">5000</b></p>
-    </div>
 
     <!-- Game Screen -->
     <div class="canvas">
@@ -40,7 +41,7 @@
     <div class="enemies"></div>
 
     <!-- Player Bullets -->
-  
+
 
     <!--  Player Spaceship -->
     <div class="player" id="player"></div>
@@ -51,7 +52,9 @@
     <!-- Game Controlers -->
     <div class="gameControlers">
       <div class="restart">
-        R
+        <div class="restartButton">
+          <button class="playAgainButton" title="Restart this game">Press R or Click here to Play Again!</button>
+        </div>
       </div>
       <div class="left">
         &#8592;
@@ -63,12 +66,6 @@
         &#8594;
       </div>
     </div>
-
-    <!-- Restart Game -->
-    <div class="restartButton">
-      <button class="playAgainButton" title="Restart this game">Play Again!</button>
-    </div>
-
     </div>
 
   </body>
