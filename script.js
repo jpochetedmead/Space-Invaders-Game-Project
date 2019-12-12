@@ -144,10 +144,10 @@ requestAnimationFrame(animate);
 //enemy bullet divs
 
 function randomEnemy() {
-    let existingEnemy = Array.from(document.querySelectorAll('.enemies div')).filter(div => div != '');
+    let existingEnemy = Array.from(document.querySelectorAll('.enemies div')).filter(div => div.textContent != '');
     let r = Math.floor(Math.random() * existingEnemy.length);
-    console.log(existingEnemy[r])
-    existingEnemy[r].style.backgroundColor = 'red';
+    
+    
         return existingEnemy[r];
 }
 
@@ -155,8 +155,13 @@ function randomEnemy() {
 
 
 function enemyBulletStart() {
+
     let enemy = randomEnemy().getBoundingClientRect();
-    enemyBulletAr.push([enemy.x, enemy.y])
+    let canvasPos = canvas.getBoundingClientRect();
+    let coolX = enemy.left;
+    let coolY = canvasPos. bottom - enemy.bottom;
+    
+    enemyBulletAr.push([coolX, coolY])
 }
 
 
@@ -166,8 +171,8 @@ function drawEnemyBullets() {
         enemyBullet = document.createElement('div')
         enemyBullet.className = 'enemyBullet';
         enemyBullet.dataset.index = index;
-        enemyBullet.style.left = enemyBulletAr[index][0] - 200 + 'px';
-        enemyBullet.style.bottom = enemyBulletAr[index][1] + 200 + 'px';
+        enemyBullet.style.left = enemyBulletAr[index][0]  -260+ 'px';
+        enemyBullet.style.bottom = enemyBulletAr[index][1] + 'px';
         canvas.appendChild(enemyBullet);
     }
 }
@@ -181,7 +186,7 @@ function removeEnemyBullet() {
 function moveEnemyBullet() {
     for (let enemyBullet of enemyBulletAr) {
         enemyBullet[1] -= 5;
-        if (enemyBullet <= 156) {
+        if (enemyBullet[1] <= 10) {
             enemyBulletAr.shift();
         }
     }
@@ -189,6 +194,7 @@ function moveEnemyBullet() {
 
 let enemyLastTime = performance.now();
 function animateEnemyBullets(now) {
+    
     if (now - enemyLastTime > 50) {
         enemyLastTime = now;
         moveEnemyBullet();
@@ -274,11 +280,11 @@ let angle = Math.PI / 2;
 
 function animateEnemies(time, lastTime) {
     if (lastTime != null) {
-        angle += (time - lastTime) * 0.003;
+        angle += (time - lastTime) * 0.010;
     }
     if (countRightX === 0) {
         enemyDiv.style.top = angle + 10 + "px";
-        enemyDiv.style.right = (Math.cos(angle) * 44) + "px";
+        enemyDiv.style.right = (Math.cos(angle) * 20) + "px";
     }
     requestAnimationFrame(newTime => animateEnemies(newTime, time));
 }
