@@ -184,18 +184,22 @@ function randomEnemy() {
 }
 
 
-function enemyBulletStart(x, y) {
-    enemyBulletAr.push(x, y)
+
+
+function enemyBulletStart() {
+    let enemy = randomEnemy().getBoundingClientRect();
+    enemyBulletAr.push([enemy.x, enemy.y])
 }
 
+
 function drawEnemyBullets() {
-    removeEnemyBullets();
+    removeEnemyBullet();
     for (let index in enemyBulletAr) {
         enemyBullet = document.createElement('div')
         enemyBullet.className = 'enemyBullet';
         enemyBullet.dataset.index = index;
-        enemyBullet.style.left = enemyBulletAr[index][0] - 18 + 'px';
-        enemyBullet.style.bottom = enemyBulletAr[index][1] -30 + 'px';
+        enemyBullet.style.left = enemyBulletAr[index][0] - 200 + 'px';
+        enemyBullet.style.bottom = enemyBulletAr[index][1] + 200 + 'px';
         canvas.appendChild(enemyBullet);
     }
 }
@@ -215,10 +219,10 @@ function moveEnemyBullet() {
     }
 }
 
-lastTime;
+let enemyLastTime = performance.now();
 function animateEnemyBullets(now) {
-    if (now - lastTime > 50) {
-        lastTime = now;
+    if (now - enemyLastTime > 50) {
+        enemyLastTime = now;
         moveEnemyBullet();
         drawEnemyBullets();
         requestAnimationFrame(animateEnemyBullets);
@@ -226,6 +230,7 @@ function animateEnemyBullets(now) {
     } else {
         requestAnimationFrame(animateEnemyBullets);
     }
+    
 }
 
 
@@ -270,7 +275,8 @@ window.addEventListener("keydown", event => {
 
         bulletStart(playerX);
         requestAnimationFrame(animate);
-
+        enemyBulletStart();
+        requestAnimationFrame(animateEnemyBullets);
         console.log('fire button was pressed');
     }
 
