@@ -1,7 +1,7 @@
 /**************************
- * JS *
+          * JS *
  * Final Project: JS Game *
- * Space Invaders *
+    * Space Invaders *
  **************************/
 /*
 1. As a Player, I want to press the arrow keys so I can move the space ship left and right.  (3)(Done... can be improved.)
@@ -10,8 +10,8 @@
 4. As a Player, I want to see the enemies blow up, so I can tell that they are dead (5)(Done...could be improved by adding explosion image and/or sound.)
 5. As a Player, I want to see my lives and know when I die , so I can see when I’m going to die and when to restart (2)
 6. As a player I want to see the score, so I can see how well I’m doing (1)(Done.)
-7. As a Player, I want to see an end screen , so I can tell that I beat the level (1)(In progress...)
-8. As a Player, I want to press a button or the "R"/"r" key, so I can restart the game (1)(Done)
+7. As a Player, I want to see an end screen , so I can tell that I beat the level (1)(Done.)
+8. As a Player, I want to press a button or the "R"/"r" key, so I can restart the game (1)(Done.)
 
 Controls:
 Left Arrow = Turn Left
@@ -19,6 +19,7 @@ Right Arrow = Turn Right
 Up Arrow / Space Bar = Shoot
 R / r  = Restart Game
 */
+
 // Showing the Player Spaceship
 let playerGrid = [''];
 let player = ['🚀'];
@@ -29,39 +30,8 @@ let playerY = 25;
 let bulletAr = [];
 let enemiesGrid = [''];
 let playerPoints = 0;
-let test = document.querySelector(".test");
-
-// WINNING FEATURE
-//const isEmpty = (currentValue) => currentValue < 40;
-/*
-const isEmpty = function currentValue(empty){
-  if (enemiesGrid === '') {
-    alert("huraaaa");
-  }
-};
-console.log(enemiesGrid.every(isEmpty));
-// expected output: true
-*/
-
-/*
-let enemiesString =document.getElementsByClassName('enemies').innerHTML = enemiesGrid;
-if (enemiesString.length === ) {
-};
-*/
-
-// LOSING FEATURE
-/*
-function destroySpaceship() {
-    let playerCollision = document.querySelectorAll('.player');
-    let enemyCollision = document.querySelectorAll('.enemies div');
-            if (collision(spaceship, enemy) === true) {
-                playerCollision.textContent = '';
-                alert("GAMEOVER");
-            }
-}
-*/
-
-// ENEMIES SHOOT FEATURE
+//let test = document.querySelector(".test");
+let win = document.querySelector(".win");
 
 //SCORE SYSTEM
 let theScore = document.querySelector('.gameScorediv');
@@ -82,10 +52,9 @@ function bulletEnemy() {
                 playerPoints += 100;
                 theScore.innerHTML = 'Player Score: ' + playerPoints;
                 if (playerPoints === 5500) { //WIN CONDITION
-                    console.log("WINNER!");
-                    alert("WINNER!");
                     canvas.style.borderColor = "red";
                     document.querySelector(".gameScorediv").style.borderColor = "red";
+                    win.style.color = 'red';
                   }
             }
         }
@@ -100,11 +69,10 @@ function collision(node1, node2) {
         test1.x + test1.width > test2.x &&
         test1.y < test2.y + test2.height &&
         test1.y + test1.height > test2.y) {
-        test.style.backgroundColor = 'red';
         return true;
     }
 }
-collision(spaceship, test);
+collision(spaceship, win);
 
 function moveBulletUp() {
     for (let bullet of bulletAr) {
@@ -203,8 +171,6 @@ window.addEventListener("keydown", event => {
         playAgainButton.style.backgroundColor = 'green';
         playAgainButton.style.color = 'white';
     }
-    collision(spaceship, test); //Why do we have this line here?
-
 });
 
 // Make enemies into an array
@@ -237,8 +203,6 @@ function animateEnemies(time, lastTime) {
     requestAnimationFrame(newTime => animateEnemies(newTime, time));
 }
 requestAnimationFrame(animateEnemies);
-
-//Enemies blowing up (Change image and play sound)
 
 //Reset Game - Let's have this until we come up with a better way to do it "if needed".
 const playAgainButton = document.querySelector('button.playAgainButton');
