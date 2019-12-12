@@ -86,6 +86,27 @@ html, body {
 	width: 2px;
 	background-color: red;
 }
+.enemyBullet {
+  position: absolute;
+	height: 6px;
+	width: 3px;
+	background-color: purple;
+  border: 1px solid yellow;
+}
+.win {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+	position: absolute;
+	left: 0;
+	width: 530px;
+	height: 60px;
+	bottom: 320px;
+  font-size: 90px;
+	background-color: transparent;
+  color: transparent;
+}
 .gameControlers {
 	display: flex;
 	flex-direction: row;
@@ -116,20 +137,4 @@ html, body {
 }
 .playAgainButton:hover {
 	background-color: #008000
-}
-.test {
-	position: absolute;
-	left: 400px;
-	width: 30px;
-	height: 30px;
-	bottom: 250px;
-	background-color: #00FF00
-}
-
-.enemyBullet {
-  position: absolute;
-	height: 6px;
-	width: 3px;
-	background-color: purple;
-  border: 1px solid yellow;
 }
