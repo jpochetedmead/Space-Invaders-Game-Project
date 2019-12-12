@@ -157,10 +157,8 @@ window.addEventListener("keydown", event => {
     // Making the player shoot
     // Up Arrow || SpaceBar to shoot.
     if (event.key === 'ArrowUp' || event.key === ' ') {
-
         bulletStart(playerX);
         requestAnimationFrame(animate);
-
         console.log('fire button was pressed');
     }
 
