@@ -1,133 +1,135 @@
-/**************************
-          * CSS3 *
- * Final Project: JS Game *
-     * Space Invaders *
- **************************/
- html, body {
-   box-sizing: border-box;
-   margin: 0;
-   padding: 0;
- }
-
- .fullGame {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
-   margin: 1%;
-   background-color: black;
-   color: white;
- }
-
+/***************************
+           CSS3
+** Final Project: JS Game **
+       Space Invaders
+***************************/
+html, body {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0
+}
+.fullGame {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: 1%;
+	background-color: #000000;
+	color: #FFFFFF
+}
+.stateOfgame {
+  display: flex;
+  align-items: flex-end;
+}
 .gameTittle {
-  display: flex;
-  flex-direction: column;
+	display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 0.9em;
 }
-
- .gameState {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   margin-bottom: 1%;
- }
-
- .canvas {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   position: relative;
-   border: 3px solid limegreen;
-   width: 500px;
-   height: 640px;
-   padding: 15px;
-   padding-top: 60px;
-   font-size: 1.5em;
-   text-align: center;
-   background-color: red;
-   background-image: url(images/space-background-stars.jpg);
-   background-size: cover;
-   background-position: 0 0;
-   background-repeat: repeat-y;
-   animation: slide 1800s linear infinite; /* Runs for 30 minutes at 10px per second */
- }
-
- @keyframes slide {
-   from {
-     background-position: 0 0;
-   }
-   to {
-     background-position: 0 18000px;
-   }
- }
-
-.enemies {
-  position: absolute;
-  margin-right: 8.3%;
-  display: grid;
-  grid-template-columns: 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px;
-  grid-template-rows: 40px 40px 40px 40px 40px;
-}
-
-#player {
-  position: absolute;
-  bottom: 20px;
-  color: green;
-  height: 32px;
-  width: 25px;
-}
-
-.bullet {
-  position: absolute;
-  height: 7px;
-  width: 2px;
-  background-color: lime;
-}
-
-.gameControlers {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
-.gameControlers>div {
-  display: flex;
+.gameScorediv {
+	display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black;
-  border: 2px solid limegreen;
-  color: white;
-  min-width: 100px;
-  min-height: 50px;
-  margin: 1%;
-}
-
-.restart {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.playAgainButton {
-  border: none;
-  background-color: black;
-  color: white;
-}
-
-.playAgainButton:hover {
-  background-color: green;
-}
-
-.test {
-  position: absolute;
-  left: 400px;
-  width: 30px;
+  border: 3px solid limegreen;
+  border-bottom: none;
   height: 30px;
-  bottom: 250px;
-  background-color: lime;
+  padding: 0 10px;
+  margin-left: 200px;
+}
+.canvas {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	border: 3px solid limegreen;
+	width: 500px;
+	height: 640px;
+	padding: 15px;
+	padding-top: 60px;
+	font-size: 1.5em;
+	text-align: center;
+	background-color: #FF0000;
+	background-image: url(images/space-background-stars.jpg);
+	background-size: cover;
+	background-position: 0 0;
+	background-repeat: repeat-y;
+	animation: slide 1800s linear infinite;
+	/* Runs for 30 minutes at 10px per second */
+}
+@keyframes slide {
+	from {
+	background-position: 0 0
+	}
+	to {
+	background-position: 0 18000px
+	}
+}
+.enemies {
+	position: absolute;
+	margin-right: 8.3%;
+	display: grid;
+	grid-template-columns: 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px;
+	grid-template-rows: 40px 40px 40px 40px 40px
+}
+#player {
+	position: absolute;
+	bottom: 20px;
+	color: #008000;
+	height: 32px;
+	width: 25px
+}
+.bullet {
+	position: absolute;
+	height: 7px;
+	width: 2px;
+	background-color: red;
+}
+.gameControlers {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center
+}
+.gameControlers>div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #000000;
+	border: 2px solid limegreen;
+	color: #FFFFFF;
+	min-width: 100px;
+	min-height: 50px;
+	margin: 1%
+}
+.restart {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center
+}
+.playAgainButton {
+	border: none;
+	background-color: #000000;
+	color: #FFFFFF
+}
+.playAgainButton:hover {
+	background-color: #008000
+}
+.test {
+	position: absolute;
+	left: 400px;
+	width: 30px;
+	height: 30px;
+	bottom: 250px;
+	background-color: #00FF00
+}
+
+.enemyBullet {
+  position: absolute;
+	height: 6px;
+	width: 3px;
+	background-color: purple;
+  border: 1px solid yellow;
 }
