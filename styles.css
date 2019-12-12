@@ -78,7 +78,7 @@
   position: absolute;
   height: 7px;
   width: 2px;
-  
+
 }
 
 
@@ -109,12 +109,4 @@
   margin-top: 2%;
 }
 
-.test {
-  position: absolute;
-  left: 400px;
-  width: 30px;
-  height: 30px;
-  
-  bottom: 250px;
-  background-color: lime;
-}
+

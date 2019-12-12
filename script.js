@@ -50,6 +50,19 @@ function bulletEnemy() {
     }
 }
 
+function playerEnemy() {
+
+
+let player = document.querySelectorAll('.player')
+let enemyPos = document.querySelectorAll('.enemies div')
+
+for (let enemy of enemyPos) {
+
+        if (enemy.textcontent && collision(enemy, player)) {
+            player.textContent = '';
+        }
+    }   
+}
 function collision(node1, node2) {
     let test1 = node1.getBoundingClientRect();
     
@@ -60,14 +73,13 @@ function collision(node1, node2) {
         test1.y < test2.y + test2.height &&
         test1.y + test1.height > test2.y){
 
-            test.style.backgroundColor = 'red'
+            
         return true;
         
         }
         
 }
 
-collision(spaceship, test);
 
 function moveBulletUp() {
     for (let bullet of bulletAr) {
@@ -131,6 +143,8 @@ let lastTime = performance.now();
   }
   requestAnimationFrame(animate);
   
+
+  
   
 
 for (let counter = 0; playerGrid.length <= 1; counter ++) {
@@ -185,7 +199,7 @@ window.addEventListener("keydown", event => {
         console.log('refresh');
         window.location.reload();
       }
-      collision(spaceship, test)
+      
       
   });
 
