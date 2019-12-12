@@ -160,7 +160,7 @@ function enemyBulletStart() {
     let enemy = randomEnemy().getBoundingClientRect();
     let canvasPos = canvas.getBoundingClientRect();
     let coolX = enemy.left;
-    let coolY = canvasPos. bottom - enemy.bottom;
+    let coolY = canvasPos.bottom - enemy.bottom;
     
     enemyBulletAr.push([coolX, coolY])
 }
@@ -172,7 +172,7 @@ function drawEnemyBullets() {
         enemyBullet = document.createElement('div')
         enemyBullet.className = 'enemyBullet';
         enemyBullet.dataset.index = index;
-        enemyBullet.style.left = enemyBulletAr[index][0]  -260+ 'px';
+        enemyBullet.style.left = enemyBulletAr[index][0] - 260 + 'px';
         enemyBullet.style.bottom = enemyBulletAr[index][1] + 'px';
         canvas.appendChild(enemyBullet);
     }
@@ -207,11 +207,6 @@ function animateEnemyBullets(now) {
     }
 
 }
-
-
-
-
-
 
 
 for (let counter = 0; playerGrid.length <= 1; counter++) {
@@ -249,6 +244,8 @@ window.addEventListener("keydown", event => {
     if (event.key === 'ArrowUp' || event.key === ' ') {
         bulletStart(playerX);
         requestAnimationFrame(animate);
+        enemyBulletStart();
+        requestAnimationFrame(animateEnemyBullets);
         console.log('fire button was pressed');
     }
 
