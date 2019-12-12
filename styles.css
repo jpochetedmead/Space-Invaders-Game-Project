@@ -67,6 +67,7 @@ html, body {
 	}
 }
 .enemies {
+  border: 1px solid yellow;
 	position: absolute;
 	margin-right: 8.3%;
 	display: grid;

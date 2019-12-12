@@ -31,7 +31,6 @@ let bulletAr = [];
 let enemyBulletAr = [];
 let enemiesGrid = [''];
 let playerPoints = 0;
-//let test = document.querySelector(".test");
 let win = document.querySelector(".win");
 
 //SCORE SYSTEM
@@ -256,7 +255,7 @@ window.addEventListener("keydown", event => {
         playAgainButton.style.backgroundColor = 'green';
         playAgainButton.style.color = 'white';
     }});
-    
+
 // Make enemies into an array
 let enemies = ['👾'];
 
