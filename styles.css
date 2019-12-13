@@ -1,8 +1,4 @@
-/***************************
-           CSS3
-** Final Project: JS Game **
-       Space Invaders
-***************************/
+/***************************CSS3** Final Project: JS Game **Space Invaders***************************/
 html, body {
 	box-sizing: border-box;
 	margin: 0;
@@ -18,24 +14,24 @@ html, body {
 	color: #FFFFFF
 }
 .stateOfgame {
-  display: flex;
-  align-items: flex-end;
+	display: flex;
+	align-items: flex-end;
 }
 .gameTittle {
 	display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 0.9em;
+	justify-content: center;
+	align-items: center;
+	font-size: 0.9em;
 }
 .gameScorediv {
 	display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 3px solid limegreen;
-  border-bottom: none;
-  height: 30px;
-  padding: 0 10px;
-  margin-left: 200px;
+	justify-content: center;
+	align-items: center;
+	border: 3px solid limegreen;
+	border-bottom: none;
+	height: 30px;
+	padding: 0 10px;
+	margin-left: 200px;
 }
 .canvas {
 	display: flex;
@@ -60,11 +56,11 @@ html, body {
 }
 @keyframes slide {
 	from {
-	background-position: 0 0
-	}
+		background-position: 0 0
+}
 	to {
-	background-position: 0 18000px
-	}
+		background-position: 0 18000px
+}
 }
 .enemies {
 	position: absolute;
@@ -87,25 +83,25 @@ html, body {
 	background-color: red;
 }
 .enemyBullet {
-  position: absolute;
+	position: absolute;
 	height: 6px;
 	width: 3px;
 	background-color: purple;
-  border: 1px solid yellow;
+	border: 1px solid yellow;
 }
 .win {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	position: absolute;
 	left: 0;
 	width: 530px;
 	height: 60px;
 	bottom: 320px;
-  font-size: 90px;
+	font-size: 90px;
 	background-color: transparent;
-  color: transparent;
+	color: transparent;
 }
 .gameControlers {
 	display: flex;
@@ -138,19 +134,18 @@ html, body {
 .playAgainButton:hover {
 	background-color: #008000
 }
-
 .gameOver {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	position: absolute;
-  top: 0;
+	top: 0;
 	left: 0;
 	width: 530px;
-  height: 715px;
+	height: 715px;
 	bottom: 320px;
-  font-size: 90px;
+	font-size: 90px;
 	background-color: red;
-  color: white;
+	color: white;
 }

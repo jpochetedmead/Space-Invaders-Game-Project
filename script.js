@@ -1,7 +1,7 @@
 /**************************
-          * JS *
+                * JS *
  * Final Project: JS Game *
-    * Space Invaders *
+      * Space Invaders *
  **************************/
 /*
 1. As a Player, I want to press the arrow keys so I can move the space ship left and right.  (3)(Done... can be improved.)
@@ -19,7 +19,6 @@ Right Arrow = Turn Right
 Up Arrow / Space Bar = Shoot
 R / r  = Restart Game
 */
-
 // Showing the Player Spaceship
 let playerGrid = [''];
 let player = ['🚀'];
@@ -36,7 +35,7 @@ let win = document.querySelector(".win");
 //SCORE SYSTEM
 let theScore = document.querySelector('.gameScorediv');
 if (playerPoints < 5500) {
-  theScore.innerHTML = 'Player Score: ' + playerPoints;
+    theScore.innerHTML = 'Player Score: ' + playerPoints;
 }
 
 //
@@ -53,9 +52,10 @@ function bulletEnemy() {
                 theScore.innerHTML = 'Player Score: ' + playerPoints;
                 if (playerPoints === 5500) { //WIN CONDITION
                     canvas.style.borderColor = "red";
-                    document.querySelector(".gameScorediv").style.borderColor = "red";
+                    document.querySelector(".gameScorediv")
+                        .style.borderColor = "red";
                     win.style.color = 'red';
-                  }
+                }
             }
         }
     }
@@ -63,28 +63,29 @@ function bulletEnemy() {
 
 
 
-    function gameOver() {
-        let youDied = document.createElement("div");
-        youDied.className = 'gameOver';
-        let youDiedTxt = document.createTextNode("YOU DIED");
-        youDied.appendChild(youDiedTxt);
-        canvas.appendChild(youDied);
-        canvas.style.borderColor = "red";
-        document.querySelector(".gameScorediv").style.borderColor = "red";
-        gameOver.style.color = 'white';
-        gameover.backgroundColor = 'red';
-        animateEnemies.pause();
-    }
+function gameOver() {
+    let youDied = document.createElement("div");
+    youDied.className = 'gameOver';
+    let youDiedTxt = document.createTextNode("YOU DIED");
+    youDied.appendChild(youDiedTxt);
+    canvas.appendChild(youDied);
+    canvas.style.borderColor = "red";
+    document.querySelector(".gameScorediv")
+        .style.borderColor = "red";
+    gameOver.style.color = 'white';
+    gameover.backgroundColor = 'red';
+    animateEnemies.pause();
+}
 
-    function enemyBulletPlayer() {
-        let enemyBullet = document.querySelectorAll('.enemyBullet')
-        for (let bullet of enemyBullet) {
-            if (collision(bullet, spaceship)) {
-                    gameOver();
-                canvas.style.borderColor = "black";
-            }
+function enemyBulletPlayer() {
+    let enemyBullet = document.querySelectorAll('.enemyBullet')
+    for (let bullet of enemyBullet) {
+        if (collision(bullet, spaceship)) {
+            gameOver();
+            canvas.style.borderColor = "black";
         }
     }
+}
 
 
 let playerPosDiv = document.querySelectorAll('.player')
@@ -92,10 +93,10 @@ let enemyPos = document.querySelectorAll('.enemies div')
 
 for (let enemy of enemyPos) {
 
-        if (enemy.textcontent && collision(enemy, player)) {
-            player.textContent = '';
-        }
+    if (enemy.textcontent && collision(enemy, player)) {
+        player.textContent = '';
     }
+}
 
 function collision(node1, node2) {
     let test1 = node1.getBoundingClientRect();
@@ -167,11 +168,12 @@ requestAnimationFrame(animate);
 //enemy bullet divs
 
 function randomEnemy() {
-    let existingEnemy = Array.from(document.querySelectorAll('.enemies div')).filter(div => div.textContent != '');
+    let existingEnemy = Array.from(document.querySelectorAll('.enemies div'))
+        .filter(div => div.textContent != '');
     let r = Math.floor(Math.random() * existingEnemy.length);
 
 
-        return existingEnemy[r];
+    return existingEnemy[r];
 }
 
 
@@ -179,7 +181,8 @@ function randomEnemy() {
 
 function enemyBulletStart() {
 
-    let enemy = randomEnemy().getBoundingClientRect();
+    let enemy = randomEnemy()
+        .getBoundingClientRect();
     let canvasPos = canvas.getBoundingClientRect();
     let coolX = enemy.left;
     let coolY = canvasPos.bottom - enemy.bottom;
@@ -216,6 +219,7 @@ function moveEnemyBullet() {
 }
 
 let enemyLastTime = performance.now();
+
 function animateEnemyBullets(now) {
 
     if (now - enemyLastTime > 50) {
@@ -278,7 +282,8 @@ window.addEventListener("keydown", event => {
         window.location.reload();
         playAgainButton.style.backgroundColor = 'green';
         playAgainButton.style.color = 'white';
-    }});
+    }
+});
 
 // Make enemies into an array
 let enemies = ['👾'];
