@@ -67,7 +67,6 @@ html, body {
 	}
 }
 .enemies {
-  border: 1px solid yellow;
 	position: absolute;
 	margin-right: 8.3%;
 	display: grid;
@@ -146,12 +145,12 @@ html, body {
   justify-content: center;
   align-items: center;
 	position: absolute;
+  top: 0;
 	left: 0;
 	width: 530px;
-	height: 60px;
+  height: 715px;
 	bottom: 320px;
   font-size: 90px;
-	background-color: transparent;
-  color: Red;
-
+	background-color: red;
+  color: white;
 }
