@@ -64,18 +64,19 @@ function bulletEnemy() {
 
 
     function gameOver() {
-        let gameOver = document.createElement("div");
-        className('gameOver');
-        let gameOverText = gameOver.createTextNode('YOU DIED');
-        gameOver.appendChild(textnode);
+        let youDied = document.createElement("div");
+        youDied.className = 'gameOver';
+        let youDiedTxt = document.createTextNode("YOU DIED");
+        youDied.appendChild(youDiedTxt);
+        canvas.appendChild(youDied);
     }
 
     function enemyBulletPlayer() {
         let enemyBullet = document.querySelectorAll('.enemyBullet')
         for (let bullet of enemyBullet) {
             if (collision(bullet, spaceship)) {
-
-                console.log('true')
+                    gameOver();
+                canvas.style.borderColor = "black";
                 
             }
         }

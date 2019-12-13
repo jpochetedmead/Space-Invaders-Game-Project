@@ -139,3 +139,19 @@ html, body {
 .playAgainButton:hover {
 	background-color: #008000
 }
+
+.gameOver {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+	position: absolute;
+	left: 0;
+	width: 530px;
+	height: 60px;
+	bottom: 320px;
+  font-size: 90px;
+	background-color: transparent;
+  color: Red;
+
+}
