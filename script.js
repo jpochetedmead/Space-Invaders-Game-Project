@@ -69,6 +69,11 @@ function bulletEnemy() {
         let youDiedTxt = document.createTextNode("YOU DIED");
         youDied.appendChild(youDiedTxt);
         canvas.appendChild(youDied);
+        canvas.style.borderColor = "red";
+        document.querySelector(".gameScorediv").style.borderColor = "red";
+        gameOver.style.color = 'white';
+        gameover.backgroundColor = 'red';
+        animateEnemies.pause();
     }
 
     function enemyBulletPlayer() {
@@ -77,7 +82,6 @@ function bulletEnemy() {
             if (collision(bullet, spaceship)) {
                     gameOver();
                 canvas.style.borderColor = "black";
-                
             }
         }
     }
@@ -165,8 +169,8 @@ requestAnimationFrame(animate);
 function randomEnemy() {
     let existingEnemy = Array.from(document.querySelectorAll('.enemies div')).filter(div => div.textContent != '');
     let r = Math.floor(Math.random() * existingEnemy.length);
-    
-    
+
+
         return existingEnemy[r];
 }
 
@@ -179,7 +183,7 @@ function enemyBulletStart() {
     let canvasPos = canvas.getBoundingClientRect();
     let coolX = enemy.left;
     let coolY = canvasPos.bottom - enemy.bottom;
-    
+
     enemyBulletAr.push([coolX, coolY])
 }
 
@@ -213,7 +217,7 @@ function moveEnemyBullet() {
 
 let enemyLastTime = performance.now();
 function animateEnemyBullets(now) {
-    
+
     if (now - enemyLastTime > 50) {
         enemyLastTime = now;
         moveEnemyBullet();
