@@ -61,10 +61,28 @@ function bulletEnemy() {
     }
 }
 
-function playerEnemy() {
 
 
-let player = document.querySelectorAll('.player')
+    function gameOver() {
+        let gameOver = document.createElement("div");
+        className('gameOver');
+        let gameOverText = gameOver.createTextNode('YOU DIED');
+        gameOver.appendChild(textnode);
+    }
+
+    function enemyBulletPlayer() {
+        let enemyBullet = document.querySelectorAll('.enemyBullet')
+        for (let bullet of enemyBullet) {
+            if (collision(bullet, spaceship)) {
+
+                console.log('true')
+                
+            }
+        }
+    }
+
+
+let playerPosDiv = document.querySelectorAll('.player')
 let enemyPos = document.querySelectorAll('.enemies div')
 
 for (let enemy of enemyPos) {
@@ -73,7 +91,7 @@ for (let enemy of enemyPos) {
             player.textContent = '';
         }
     }
-}
+
 function collision(node1, node2) {
     let test1 = node1.getBoundingClientRect();
     let test2 = node2.getBoundingClientRect();
@@ -198,6 +216,7 @@ function animateEnemyBullets(now) {
     if (now - enemyLastTime > 50) {
         enemyLastTime = now;
         moveEnemyBullet();
+        enemyBulletPlayer();
         drawEnemyBullets();
         requestAnimationFrame(animateEnemyBullets);
 
